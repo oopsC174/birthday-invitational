@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T14:16:00-07:00",
+ "updated": "2026-10-23T14:23:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -22,10 +22,11 @@
    "yards": 134,
    "players_in": [
     "Chase",
-    "Ava"
+    "Ava",
+    "Lucas"
    ],
-   "buyins": 10,
-   "pot": 10,
+   "buyins": 15,
+   "pot": 15,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -40,10 +41,11 @@
    "yards": 130,
    "players_in": [
     "Chase",
-    "Ava"
+    "Ava",
+    "Lucas"
    ],
-   "buyins": 10,
-   "pot": 10,
+   "buyins": 15,
+   "pot": 15,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -58,10 +60,11 @@
    "yards": 464,
    "players_in": [
     "Chase",
-    "Ava"
+    "Ava",
+    "Lucas"
    ],
-   "buyins": 10,
-   "pot": 10,
+   "buyins": 15,
+   "pot": 15,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -76,10 +79,11 @@
    "yards": 189,
    "players_in": [
     "Chase",
-    "Ava"
+    "Ava",
+    "Lucas"
    ],
-   "buyins": 10,
-   "pot": 10,
+   "buyins": 15,
+   "pot": 15,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -94,10 +98,11 @@
    "yards": 132,
    "players_in": [
     "Chase",
-    "Ava"
+    "Ava",
+    "Lucas"
    ],
-   "buyins": 10,
-   "pot": 10,
+   "buyins": 15,
+   "pot": 15,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -122,6 +127,11 @@
    "seq": 2,
    "hole": "Sign-ups",
    "text": "Ava is in on all five. She's been practicing her putting like Happy Gilmore at the mini golf course, so watch out."
+  },
+  {
+   "seq": 3,
+   "hole": "Sign-ups",
+   "text": "Lucas is in on all five. Bold move for a guy getting strokes. Like Roy McAvoy said, he'd rather go down in flames than lay up."
   }
  ],
  "payments": [],
