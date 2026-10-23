@@ -108,7 +108,7 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
   <section style="display:flex;flex-direction:column;gap:10px" id="challenges">
     <h2>Challenge holes</h2>
     <div class="holes" id="holes"></div>
-    <p class="note">Closest to the pin counts only on the green with par or better. Long drive counts only in the fairway. No winner on a hole: its pot splits evenly across the challenge holes left.</p>
+    <p class="note">Closest to the pin counts only on the green with par or better. Long drive counts only in the fairway. No winner on a hole: everyone who paid into it gets their $5 back.</p>
   </section>
 
   <section class="card" id="settle">
@@ -173,23 +173,21 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
       const st = h.status || 'Open';
       const card = el('article', 'card'); card.id = 'hole-' + h.hole;
       const top = el('div', 'hole-top');
-      top.append(el('span', 'hole-num', 'Hole ' + h.hole), el('span', 'pill' + (st === 'Won' ? ' won' : st === 'Rolled over' ? ' rolled' : ''), st));
+      top.append(el('span', 'hole-num', 'Hole ' + h.hole), el('span', 'pill' + (st === 'Won' ? ' won' : st === 'Refunded' ? ' rolled' : ''), st));
       const who = st === 'Won' ? h.winner : h.leader;
       const lead = el('div', 'row');
-      lead.append(el('span', null, st === 'Won' ? 'Winner' : 'Leader'), el('span', null, who ? who : (st === 'Rolled over' ? 'Nobody' : 'No one yet')));
+      lead.append(el('span', null, st === 'Won' ? 'Winner' : 'Leader'), el('span', null, who ? who : (st === 'Refunded' ? 'Nobody' : 'No one yet')));
       const dist = el('div', 'row');
       const isDrive = /drive/i.test(h.game);
       dist.append(el('span', null, isDrive ? 'Drive' : 'To the pin'), el('span', 'dist', h.mark || '—'));
       const thru = el('div', 'row');
       const nGroups = (data.tee_times || []).length || 3;
       thru.append(el('span', null, 'Groups through'), el('span', null, (h.groups_through || 0) + ' of ' + nGroups + (st === 'Open' && (h.groups_through || 0) >= nGroups ? '' : '')));
-      const carry = el('div', 'row');
-      carry.append(el('span', null, 'Rolled in'), el('span', null, money(h.carried_in)));
       const ins = Array.isArray(h.players_in) ? h.players_in : [];
       card.append(top,
         el('span', 'note', h.game + ' · Par ' + h.par + ' · ' + h.yards + ' yds'),
         el('span', 'big' + (st === 'Open' ? ' live' : ''), money(h.pot)),
-        lead, dist, thru, carry,
+        lead, dist, thru,
         el('span', 'who', 'In (' + ins.length + '): ' + (ins.join(', ') || 'nobody yet')));
       return card;
     }));
