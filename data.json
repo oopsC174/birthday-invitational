@@ -1,0 +1,119 @@
+{
+ "updated": "2026-10-23T11:20:00-07:00",
+ "players": [
+  "Chase",
+  "Ava",
+  "Nico",
+  "Arty",
+  "Rex",
+  "Peter",
+  "Lucas",
+  "Thomas",
+  "Matt",
+  "Evan"
+ ],
+ "challenge_buyin": 5,
+ "holes": [
+  {
+   "order": 1,
+   "hole": 2,
+   "game": "Closest to the pin",
+   "par": 3,
+   "yards": 134,
+   "players_in": [
+    "Chase"
+   ],
+   "buyins": 5,
+   "carried_in": 0,
+   "pot": 5,
+   "leader": "",
+   "mark": "",
+   "status": "Open",
+   "winner": ""
+  },
+  {
+   "order": 2,
+   "hole": 6,
+   "game": "Closest to the pin",
+   "par": 3,
+   "yards": 130,
+   "players_in": [
+    "Chase"
+   ],
+   "buyins": 5,
+   "carried_in": 0,
+   "pot": 5,
+   "leader": "",
+   "mark": "",
+   "status": "Open",
+   "winner": ""
+  },
+  {
+   "order": 3,
+   "hole": 7,
+   "game": "Long drive",
+   "par": 5,
+   "yards": 464,
+   "players_in": [
+    "Chase"
+   ],
+   "buyins": 5,
+   "carried_in": 0,
+   "pot": 5,
+   "leader": "",
+   "mark": "",
+   "status": "Open",
+   "winner": ""
+  },
+  {
+   "order": 4,
+   "hole": 13,
+   "game": "Closest to the pin",
+   "par": 3,
+   "yards": 189,
+   "players_in": [
+    "Chase"
+   ],
+   "buyins": 5,
+   "carried_in": 0,
+   "pot": 5,
+   "leader": "",
+   "mark": "",
+   "status": "Open",
+   "winner": ""
+  },
+  {
+   "order": 5,
+   "hole": 16,
+   "game": "Closest to the pin",
+   "par": 3,
+   "yards": 132,
+   "players_in": [
+    "Chase"
+   ],
+   "buyins": 5,
+   "carried_in": 0,
+   "pot": 5,
+   "leader": "",
+   "mark": "",
+   "status": "Open",
+   "winner": ""
+  }
+ ],
+ "main": {
+  "buy_in": 20,
+  "players": 10,
+  "pot": 200,
+  "per_winner": 100
+ },
+ "teams": [],
+ "feed": [
+  {
+   "seq": 1,
+   "hole": "Sign-ups",
+   "text": "Chase is in on all five challenge holes. Confidence or delusion? We find out Saturday."
+  }
+ ],
+ "payments": [],
+ "payment_mode": ""
+}

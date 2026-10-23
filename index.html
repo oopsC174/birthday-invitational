@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saturday Golf Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a hand-lettered course scoreboard. Green board header, white placards, red for money that's live. */
+:root {
+  --board: #1f4d33;
+  --board-ink: #f3f1e8;
+  --bg: #eef0ec;
+  --card: #ffffff;
+  --ink: #1b221d;
+  --muted: #5d6a61;
+  --line: #d6dcd6;
+  --live: #b3261e;
+  --won: #1f7a43;
+  --rolled: #a8630b;
+  --display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --board: #173a27; --board-ink: #eceadf; --bg: #0f1411; --card: #18201b;
+    --ink: #e7ebe6; --muted: #9aa79e; --line: #2b362f; --live: #ef6b5f; --won: #5cc488; --rolled: #e3a44a;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: max(24px, env(safe-area-inset-bottom, 0px)); }
+.wrap { max-width: 64rem; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 20px; }
+header.board { background: var(--board); color: var(--board-ink); }
+header.board .wrap { padding-block: 20px 18px; gap: 4px; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 7vw, 3rem); letter-spacing: .02em; text-transform: uppercase; margin: 0; line-height: 1; }
+.sub { margin: 0; opacity: .85; font-size: .95rem; }
+.stamp { font-size: .8rem; opacity: .7; }
+main.wrap { padding-block: 20px 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.big { font-family: var(--display); font-weight: 700; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.big.live { color: var(--live); }
+.note { font-size: .85rem; color: var(--muted); margin: 0; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .03em; margin: 0; }
+.latest { border-left: 4px solid var(--live); }
+.latest p { margin: 0; font-size: 1.15rem; }
+.holes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 12px; }
+.hole-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.hole-num { font-family: var(--display); font-weight: 700; font-size: 1.5rem; text-transform: uppercase; }
+.pill { font-size: .75rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.won { color: var(--won); border-color: currentColor; }
+.pill.rolled { color: var(--rolled); border-color: currentColor; }
+.row { display: flex; justify-content: space-between; gap: 8px; font-size: .95rem; }
+.row > :first-child { color: var(--muted); }
+.row > :last-child { text-align: right; overflow-wrap: anywhere; font-weight: 600; }
+.who { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .95rem; }
+th { text-align: left; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 12px; }
+.empty { color: var(--muted); margin: 0; font-size: .95rem; }
+.settle-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+select { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); min-width: 11rem; }
+select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
+.net { border-top: 1px solid var(--line); padding-top: 8px; font-size: 1.05rem; }
+.pos { color: var(--won); } .neg { color: var(--live); }
+.err { color: var(--live); font-size: .85rem; }
+</style>
+</head>
+<body>
+<header class="board">
+  <div class="wrap">
+    <h1>Saturday Golf Leaderboard</h1>
+    <p class="sub">Challenge pots, leaders, main game and who owes who.</p>
+    <span class="stamp" id="stamp">Loading…</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="tiles">
+    <div class="card"><span class="label">Challenge money in play</span><span class="big live" id="t-chal">—</span><span class="note" id="t-chal-note">$5 per player per hole</span></div>
+    <div class="card"><span class="label">Main game pot</span><span class="big" id="t-main">—</span><span class="note" id="t-main-note">Winning team splits it</span></div>
+  </section>
+
+  <section class="card latest" id="latest">
+    <span class="label">Latest from the course</span>
+    <p id="latest-text">—</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px" id="challenges">
+    <h2>Challenge holes</h2>
+    <div class="holes" id="holes"></div>
+    <p class="note">Closest to the pin counts only on the green with par or better. Long drive counts only in the fairway. No winner on a hole: its pot splits evenly across the challenge holes left.</p>
+  </section>
+
+  <section class="card" id="settle">
+    <div class="settle-head">
+      <h2>Who pays who</h2>
+      <select id="player" aria-label="Pick your name"><option value="">Pick your name</option></select>
+    </div>
+    <p class="note" id="pay-note">Payments get worked out once the games are settled.</p>
+    <div class="two">
+      <div><span class="label" id="out-label">You pay</span>
+        <div class="scroll"><table id="out"><thead><tr><th>To</th><th>Amount</th><th>For</th></tr></thead><tbody></tbody></table></div>
+        <p class="empty" id="out-empty" hidden>Nothing to pay.</p></div>
+      <div><span class="label" id="in-label">You collect</span>
+        <div class="scroll"><table id="in"><thead><tr><th>From</th><th>Amount</th><th>For</th></tr></thead><tbody></tbody></table></div>
+        <p class="empty" id="in-empty" hidden>Nothing to collect.</p></div>
+    </div>
+    <div class="row net"><span>Net</span><span id="net">—</span></div>
+  </section>
+
+  <section class="two">
+    <div class="card" id="main-game">
+      <h2>Main game</h2>
+      <div class="row"><span>Each winner gets</span><span id="per">—</span></div>
+      <p class="note">Random 2-player teams drawn after the round. Each player's best front or back 9 (par 36) added together against par 72. Handicap: Peter, Matt and Lucas use their best 9 holes from the whole round, scored against par and added to 36.</p>
+      <div class="scroll"><table id="teams"><thead><tr><th>Team</th><th>Player A</th><th>9</th><th>Player B</th><th>9</th><th>Total</th><th>vs Par</th></tr></thead><tbody></tbody></table></div>
+      <p class="empty" id="teams-empty">Teams get drawn after the round.</p>
+    </div>
+    <div class="card" id="log">
+      <h2>Trash talk log</h2>
+      <div class="scroll"><table id="feed"><thead><tr><th>#</th><th>Hole</th><th>Update</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const money = (v) => { const n = Number(v); if (!isFinite(n)) return '—'; return '$' + (n % 1 === 0 ? n.toLocaleString('en-US') : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })); };
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  let data = null;
+  let me = '';
+  try { me = localStorage.getItem('golf-player') || ''; } catch (e) {}
+
+  function rowCells(tr, vals) { vals.forEach((v) => tr.append(el('td', null, v == null ? '' : String(v)))); return tr; }
+
+  function render() {
+    if (!data) return;
+    const t = new Date(data.updated);
+    $('stamp').textContent = 'Updated ' + (isNaN(t) ? data.updated : t.toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' })) + ' · refreshes every minute';
+
+    const holes = (data.holes || []).slice().sort((a, b) => a.order - b.order);
+    const chal = holes.reduce((s, h) => s + Number(h.buyins || 0), 0);
+    $('t-chal').textContent = money(chal);
+    $('t-main').textContent = money(data.main && data.main.pot);
+    $('per').textContent = money(data.main && data.main.per_winner);
+
+    const feed = (data.feed || []).slice().sort((a, b) => b.seq - a.seq);
+    $('latest-text').textContent = feed[0] ? feed[0].text : 'Nothing yet. Tee time is coming.';
+    $('feed').querySelector('tbody').replaceChildren(...feed.map((f) => rowCells(el('tr'), [f.seq, f.hole, f.text])));
+
+    $('holes').replaceChildren(...holes.map((h) => {
+      const st = h.status || 'Open';
+      const card = el('article', 'card'); card.id = 'hole-' + h.hole;
+      const top = el('div', 'hole-top');
+      top.append(el('span', 'hole-num', 'Hole ' + h.hole), el('span', 'pill' + (st === 'Won' ? ' won' : st === 'Rolled over' ? ' rolled' : ''), st));
+      const who = st === 'Won' ? h.winner : h.leader;
+      const lead = el('div', 'row');
+      lead.append(el('span', null, st === 'Won' ? 'Winner' : 'Leader'), el('span', null, who ? who + (h.mark ? ' · ' + h.mark : '') : (st === 'Rolled over' ? 'Nobody' : 'No one yet')));
+      const carry = el('div', 'row');
+      carry.append(el('span', null, 'Rolled in'), el('span', null, money(h.carried_in)));
+      const ins = Array.isArray(h.players_in) ? h.players_in : [];
+      card.append(top,
+        el('span', 'note', h.game + ' · Par ' + h.par + ' · ' + h.yards + ' yds'),
+        el('span', 'big' + (st === 'Open' ? ' live' : ''), money(h.pot)),
+        lead, carry,
+        el('span', 'who', 'In (' + ins.length + '): ' + (ins.join(', ') || 'nobody yet')));
+      return card;
+    }));
+
+    const teams = data.teams || [];
+    $('teams').querySelector('tbody').replaceChildren(...teams.map((t) => rowCells(el('tr'), [t.team, t.player_a, t.a_best9, t.player_b, t.b_best9, t.combined, t.vs_par])));
+    $('teams').hidden = teams.length === 0;
+    $('teams-empty').hidden = teams.length !== 0;
+
+    const sel = $('player');
+    const names = data.players || [];
+    if (sel.options.length !== names.length + 1) {
+      sel.replaceChildren(new Option('Pick your name', ''), ...names.map((n) => new Option(n, n)));
+    }
+    if (!names.includes(me)) me = '';
+    sel.value = me;
+    renderPay();
+  }
+
+  function renderPay() {
+    const pays = data.payments || [];
+    const outs = me ? pays.filter((p) => p.payer === me) : [];
+    const ins = me ? pays.filter((p) => p.payee === me) : [];
+    const fill = (id, list, who) => {
+      $(id).querySelector('tbody').replaceChildren(...list.map((p) => rowCells(el('tr'), [p[who], money(p.amount), p.reason || ''])));
+      $(id).hidden = list.length === 0;
+      $(id + '-empty').hidden = list.length !== 0 || !me || pays.length === 0;
+    };
+    fill('out', outs, 'payee');
+    fill('in', ins, 'payer');
+    $('out-label').textContent = me ? me + ' pays' : 'You pay';
+    $('in-label').textContent = me ? me + ' collects' : 'You collect';
+    $('pay-note').textContent = pays.length === 0 ? 'Payments get worked out once the games are settled.'
+      : me ? (data.payment_mode || 'Netted so everyone makes as few payments as possible.') : 'Pick your name to see what you owe and what you collect.';
+    const net = ins.reduce((s, p) => s + Number(p.amount), 0) - outs.reduce((s, p) => s + Number(p.amount), 0);
+    const n = $('net');
+    n.className = !me || !pays.length ? '' : net > 0 ? 'pos' : net < 0 ? 'neg' : '';
+    n.textContent = !me || !pays.length ? '—' : (net > 0 ? '+' : net < 0 ? '−' : '') + money(Math.abs(net));
+  }
+
+  $('player').addEventListener('change', (e) => {
+    me = e.target.value;
+    try { localStorage.setItem('golf-player', me); } catch (err) {}
+    renderPay();
+  });
+
+  async function load() {
+    try {
+      const r = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) throw new Error(r.status);
+      data = await r.json();
+      render();
+    } catch (e) {
+      if (!data) $('stamp').innerHTML = '<span class="err">Couldn’t load the latest scores. Pull down to refresh.</span>';
+    }
+  }
+  load();
+  setInterval(load, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>
