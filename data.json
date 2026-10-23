@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T14:32:00-07:00",
+ "updated": "2026-10-23T14:51:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -23,10 +23,11 @@
    "players_in": [
     "Chase",
     "Ava",
-    "Lucas"
+    "Lucas",
+    "Nico"
    ],
-   "buyins": 15,
-   "pot": 15,
+   "buyins": 20,
+   "pot": 20,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -42,10 +43,11 @@
    "players_in": [
     "Chase",
     "Ava",
-    "Lucas"
+    "Lucas",
+    "Nico"
    ],
-   "buyins": 15,
-   "pot": 15,
+   "buyins": 20,
+   "pot": 20,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -62,10 +64,11 @@
     "Chase",
     "Ava",
     "Lucas",
-    "Rex"
+    "Rex",
+    "Nico"
    ],
-   "buyins": 20,
-   "pot": 20,
+   "buyins": 25,
+   "pot": 25,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -81,10 +84,11 @@
    "players_in": [
     "Chase",
     "Ava",
-    "Lucas"
+    "Lucas",
+    "Nico"
    ],
-   "buyins": 15,
-   "pot": 15,
+   "buyins": 20,
+   "pot": 20,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -100,10 +104,11 @@
    "players_in": [
     "Chase",
     "Ava",
-    "Lucas"
+    "Lucas",
+    "Nico"
    ],
-   "buyins": 15,
-   "pot": 15,
+   "buyins": 20,
+   "pot": 20,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -138,6 +143,11 @@
    "seq": 4,
    "hole": "Sign-ups",
    "text": "Rex is in on the long drive and still weighing the closest to the pins. Classic Rex: grip it and rip it, then think about the short game later."
+  },
+  {
+   "seq": 5,
+   "hole": "Sign-ups",
+   "text": "Nico is in on all five. Brotherly love ends at the first tee, Chase. Sibling rivalry is officially par for the course."
   }
  ],
  "payments": [],
