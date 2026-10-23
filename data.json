@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T11:35:00-07:00",
+ "updated": "2026-10-23T13:32:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -21,11 +21,12 @@
    "par": 3,
    "yards": 134,
    "players_in": [
-    "Chase"
+    "Chase",
+    "Ava"
    ],
-   "buyins": 5,
+   "buyins": 10,
    "carried_in": 0,
-   "pot": 5,
+   "pot": 10,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -39,11 +40,12 @@
    "par": 3,
    "yards": 130,
    "players_in": [
-    "Chase"
+    "Chase",
+    "Ava"
    ],
-   "buyins": 5,
+   "buyins": 10,
    "carried_in": 0,
-   "pot": 5,
+   "pot": 10,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -57,11 +59,12 @@
    "par": 5,
    "yards": 464,
    "players_in": [
-    "Chase"
+    "Chase",
+    "Ava"
    ],
-   "buyins": 5,
+   "buyins": 10,
    "carried_in": 0,
-   "pot": 5,
+   "pot": 10,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -75,11 +78,12 @@
    "par": 3,
    "yards": 189,
    "players_in": [
-    "Chase"
+    "Chase",
+    "Ava"
    ],
-   "buyins": 5,
+   "buyins": 10,
    "carried_in": 0,
-   "pot": 5,
+   "pot": 10,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -93,11 +97,12 @@
    "par": 3,
    "yards": 132,
    "players_in": [
-    "Chase"
+    "Chase",
+    "Ava"
    ],
-   "buyins": 5,
+   "buyins": 10,
    "carried_in": 0,
-   "pot": 5,
+   "pot": 10,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -117,6 +122,11 @@
    "seq": 1,
    "hole": "Sign-ups",
    "text": "Chase is in on all five challenge holes. Confidence or delusion? We find out Saturday."
+  },
+  {
+   "seq": 2,
+   "hole": "Sign-ups",
+   "text": "Ava is in on all five. She's been practicing her putting like Happy Gilmore at the mini golf course, so watch out."
   }
  ],
  "payments": [],
