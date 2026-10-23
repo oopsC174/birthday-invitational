@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T14:23:00-07:00",
+ "updated": "2026-10-23T14:32:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -61,10 +61,11 @@
    "players_in": [
     "Chase",
     "Ava",
-    "Lucas"
+    "Lucas",
+    "Rex"
    ],
-   "buyins": 15,
-   "pot": 15,
+   "buyins": 20,
+   "pot": 20,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -132,6 +133,11 @@
    "seq": 3,
    "hole": "Sign-ups",
    "text": "Lucas is in on all five. Bold move for a guy getting strokes. Like Roy McAvoy said, he'd rather go down in flames than lay up."
+  },
+  {
+   "seq": 4,
+   "hole": "Sign-ups",
+   "text": "Rex is in on the long drive and still weighing the closest to the pins. Classic Rex: grip it and rip it, then think about the short game later."
   }
  ],
  "payments": [],
