@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T11:20:00-07:00",
+ "updated": "2026-10-23T11:35:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -29,7 +29,8 @@
    "leader": "",
    "mark": "",
    "status": "Open",
-   "winner": ""
+   "winner": "",
+   "groups_through": 0
   },
   {
    "order": 2,
@@ -46,7 +47,8 @@
    "leader": "",
    "mark": "",
    "status": "Open",
-   "winner": ""
+   "winner": "",
+   "groups_through": 0
   },
   {
    "order": 3,
@@ -63,7 +65,8 @@
    "leader": "",
    "mark": "",
    "status": "Open",
-   "winner": ""
+   "winner": "",
+   "groups_through": 0
   },
   {
    "order": 4,
@@ -80,7 +83,8 @@
    "leader": "",
    "mark": "",
    "status": "Open",
-   "winner": ""
+   "winner": "",
+   "groups_through": 0
   },
   {
    "order": 5,
@@ -97,7 +101,8 @@
    "leader": "",
    "mark": "",
    "status": "Open",
-   "winner": ""
+   "winner": "",
+   "groups_through": 0
   }
  ],
  "main": {
@@ -115,5 +120,22 @@
   }
  ],
  "payments": [],
- "payment_mode": ""
+ "payment_mode": "",
+ "tee_times": [
+  {
+   "group": 1,
+   "time": "12:00",
+   "players": []
+  },
+  {
+   "group": 2,
+   "time": "12:10",
+   "players": []
+  },
+  {
+   "group": 3,
+   "time": "12:20",
+   "players": []
+  }
+ ]
 }

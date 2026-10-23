@@ -72,6 +72,9 @@ select { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid
 select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
 .net { border-top: 1px solid var(--line); padding-top: 8px; font-size: 1.05rem; }
 .pos { color: var(--won); } .neg { color: var(--live); }
+.tees { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 10px; }
+.tee { display: flex; flex-direction: column; gap: 2px; }
+.tee-time { font-family: var(--display); font-weight: 700; font-size: 1.4rem; font-variant-numeric: tabular-nums; }
 .err { color: var(--live); font-size: .85rem; }
 </style>
 </head>
@@ -88,6 +91,12 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
   <section class="tiles">
     <div class="card"><span class="label">Challenge money in play</span><span class="big live" id="t-chal">—</span><span class="note" id="t-chal-note">$5 per player per hole</span></div>
     <div class="card"><span class="label">Main game pot</span><span class="big" id="t-main">—</span><span class="note" id="t-main-note">Winning team splits it</span></div>
+  </section>
+
+  <section class="card" id="tees">
+    <span class="label">Tee times</span>
+    <div class="tees" id="tee-list"></div>
+    <p class="note">Tee groups aren't main game teams. A challenge hole is final once the 12:20 group plays it.</p>
   </section>
 
   <section class="card latest" id="latest">
@@ -167,15 +176,24 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
       const who = st === 'Won' ? h.winner : h.leader;
       const lead = el('div', 'row');
       lead.append(el('span', null, st === 'Won' ? 'Winner' : 'Leader'), el('span', null, who ? who + (h.mark ? ' · ' + h.mark : '') : (st === 'Rolled over' ? 'Nobody' : 'No one yet')));
+      const thru = el('div', 'row');
+      const nGroups = (data.tee_times || []).length || 3;
+      thru.append(el('span', null, 'Groups through'), el('span', null, (h.groups_through || 0) + ' of ' + nGroups + (st === 'Open' && (h.groups_through || 0) >= nGroups ? '' : '')));
       const carry = el('div', 'row');
       carry.append(el('span', null, 'Rolled in'), el('span', null, money(h.carried_in)));
       const ins = Array.isArray(h.players_in) ? h.players_in : [];
       card.append(top,
         el('span', 'note', h.game + ' · Par ' + h.par + ' · ' + h.yards + ' yds'),
         el('span', 'big' + (st === 'Open' ? ' live' : ''), money(h.pot)),
-        lead, carry,
+        lead, thru, carry,
         el('span', 'who', 'In (' + ins.length + '): ' + (ins.join(', ') || 'nobody yet')));
       return card;
+    }));
+
+    $('tee-list').replaceChildren(...(data.tee_times || []).map((g) => {
+      const d = el('div', 'tee');
+      d.append(el('span', 'tee-time', g.time), el('span', 'who', (g.players || []).length ? g.players.join(', ') : 'Groups posted before tee-off'));
+      return d;
     }));
 
     const teams = data.teams || [];
