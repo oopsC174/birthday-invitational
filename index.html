@@ -76,6 +76,13 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
 .tee { display: flex; flex-direction: column; gap: 2px; }
 .tee-time { font-family: var(--display); font-weight: 700; font-size: 1.4rem; font-variant-numeric: tabular-nums; }
 .dist { font-family: var(--display); font-size: 1.25rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pot-sum { display: flex; flex-direction: column; gap: 6px; }
+.bar { height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar-fill { height: 100%; background: var(--won); border-radius: 999px; transition: width .4s ease; }
+.mine { border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; background: var(--bg); }
+td.paid { color: var(--won); font-weight: 600; }
+td.owed { color: var(--live); font-weight: 600; }
+tr.me td { background: color-mix(in srgb, var(--won) 12%, transparent); }
 .err { color: var(--live); font-size: .85rem; }
 </style>
 </head>
@@ -111,21 +118,30 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
     <p class="note">Closest to the pin counts only on the green with par or better. Long drive counts only in the fairway. No winner on a hole: everyone who paid into it gets their $5 back.</p>
   </section>
 
-  <section class="card" id="settle">
+  <section class="card" id="pot">
     <div class="settle-head">
-      <h2>Who pays who</h2>
-      <select id="player" aria-label="Pick your name"><option value="">Pick your name</option></select>
+      <h2>The pot</h2>
+      <select id="player" aria-label="Find your name"><option value="">Find your name</option></select>
     </div>
-    <p class="note" id="pay-note">Payments get worked out once the games are settled.</p>
+    <p class="note">One big pot. Everyone pays Chase before tee-off, and Chase pays out winners and refunds after the round.</p>
+    <div class="pot-sum">
+      <div class="row"><span>Collected</span><span id="pot-collected">—</span></div>
+      <div class="bar" aria-hidden="true"><div class="bar-fill" id="pot-bar"></div></div>
+      <span class="who" id="pot-left">—</span>
+    </div>
+    <div class="mine" id="mine" hidden>
+      <span class="label" id="mine-label">You</span>
+      <div class="row"><span>Buy-in</span><span id="mine-buyin">—</span></div>
+      <div class="row"><span>Winnings</span><span id="mine-win">—</span></div>
+      <div class="row net"><span>Net for the day</span><span id="mine-net">—</span></div>
+    </div>
     <div class="two">
-      <div><span class="label" id="out-label">You pay</span>
-        <div class="scroll"><table id="out"><thead><tr><th>To</th><th>Amount</th><th>For</th></tr></thead><tbody></tbody></table></div>
-        <p class="empty" id="out-empty" hidden>Nothing to pay.</p></div>
-      <div><span class="label" id="in-label">You collect</span>
-        <div class="scroll"><table id="in"><thead><tr><th>From</th><th>Amount</th><th>For</th></tr></thead><tbody></tbody></table></div>
-        <p class="empty" id="in-empty" hidden>Nothing to collect.</p></div>
+      <div><span class="label">Buy-ins (pay Chase)</span>
+        <div class="scroll"><table id="buyins"><thead><tr><th>Player</th><th>Owes</th><th>Status</th></tr></thead><tbody></tbody></table></div></div>
+      <div><span class="label">Payouts (Chase pays)</span>
+        <div class="scroll"><table id="payouts"><thead><tr><th>Player</th><th>Gets</th><th>For</th></tr></thead><tbody></tbody></table></div>
+        <p class="empty" id="payouts-empty">Posted after the round.</p></div>
     </div>
-    <div class="row net"><span>Net</span><span id="net">—</span></div>
   </section>
 
   <section class="two">
@@ -206,7 +222,7 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
     const sel = $('player');
     const names = data.players || [];
     if (sel.options.length !== names.length + 1) {
-      sel.replaceChildren(new Option('Pick your name', ''), ...names.map((n) => new Option(n, n)));
+      sel.replaceChildren(new Option('Find your name', ''), ...names.map((n) => new Option(n, n)));
     }
     if (!names.includes(me)) me = '';
     sel.value = me;
@@ -214,24 +230,42 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
   }
 
   function renderPay() {
-    const pays = data.payments || [];
-    const outs = me ? pays.filter((p) => p.payer === me) : [];
-    const ins = me ? pays.filter((p) => p.payee === me) : [];
-    const fill = (id, list, who) => {
-      $(id).querySelector('tbody').replaceChildren(...list.map((p) => rowCells(el('tr'), [p[who], money(p.amount) + (p.paid ? ' ✓ Paid' : ''), p.reason || ''])));
-      $(id).hidden = list.length === 0;
-      $(id + '-empty').hidden = list.length !== 0 || !me || pays.length === 0;
-    };
-    fill('out', outs, 'payee');
-    fill('in', ins, 'payer');
-    $('out-label').textContent = me ? me + ' pays' : 'You pay';
-    $('in-label').textContent = me ? me + ' collects' : 'You collect';
-    $('pay-note').textContent = pays.length === 0 ? 'Payments get worked out once the games are settled.'
-      : me ? (data.payment_mode || 'Netted so everyone makes as few payments as possible.') : 'Pick your name to see what you owe and what you collect.';
-    const net = ins.reduce((s, p) => s + Number(p.amount), 0) - outs.reduce((s, p) => s + Number(p.amount), 0);
-    const n = $('net');
-    n.className = !me || !pays.length ? '' : net > 0 ? 'pos' : net < 0 ? 'neg' : '';
-    n.textContent = !me || !pays.length ? '—' : (net > 0 ? '+' : net < 0 ? '−' : '') + money(Math.abs(net));
+    const buys = data.buyins || [];
+    const outs = data.payouts || [];
+    const total = buys.reduce((a, b) => a + Number(b.amount), 0);
+    const got = buys.filter((b) => b.paid).reduce((a, b) => a + Number(b.amount), 0);
+    $('pot-collected').textContent = money(got) + ' of ' + money(total);
+    $('pot-bar').style.width = (total ? Math.round(got / total * 100) : 0) + '%';
+    const unpaid = buys.filter((b) => !b.paid).map((b) => b.player);
+    $('pot-left').textContent = unpaid.length ? 'Still owed by: ' + unpaid.join(', ') : 'Everyone is paid up.';
+
+    $('buyins').querySelector('tbody').replaceChildren(...buys.map((b) => {
+      const tr = el('tr', b.player === me ? 'me' : null);
+      const st = el('td', b.paid ? 'paid' : 'owed', b.paid ? (b.note || '✓ Paid') : 'Owes');
+      tr.append(el('td', null, b.player), el('td', null, money(b.amount)), st);
+      tr.title = b.reason || '';
+      return tr;
+    }));
+    $('payouts').querySelector('tbody').replaceChildren(...outs.map((p) => {
+      const tr = el('tr', p.player === me ? 'me' : null);
+      return rowCells(tr, [p.player, money(p.amount), p.reason || '']);
+    }));
+    $('payouts').hidden = outs.length === 0;
+    $('payouts-empty').hidden = outs.length !== 0;
+
+    const mine = $('mine');
+    mine.hidden = !me;
+    if (!me) return;
+    const b = buys.find((x) => x.player === me);
+    const w = outs.filter((x) => x.player === me).reduce((a, x) => a + Number(x.amount), 0);
+    $('mine-label').textContent = me;
+    $('mine-buyin').textContent = b ? money(b.amount) + (b.paid ? ' · ' + (b.note || '✓ Paid') : ' · owes Chase') : '—';
+    $('mine-buyin').title = b && b.reason ? b.reason : '';
+    $('mine-win').textContent = outs.length ? money(w) : 'After the round';
+    const net = w - (b ? Number(b.amount) : 0);
+    const n = $('mine-net');
+    n.className = !outs.length ? '' : net > 0 ? 'pos' : net < 0 ? 'neg' : '';
+    n.textContent = !outs.length ? '—' : (net > 0 ? '+' : net < 0 ? '−' : '') + money(Math.abs(net));
   }
 
   $('player').addEventListener('change', (e) => {
