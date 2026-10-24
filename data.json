@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T13:20:00-07:00",
+ "updated": "2026-10-24T13:41:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -56,11 +56,11 @@
    ],
    "buyins": 40,
    "pot": 40,
-   "leader": "",
-   "mark": "",
+   "leader": "Arty",
+   "mark": "9 ft 6 in",
    "status": "Open",
    "winner": "",
-   "groups_through": 0
+   "groups_through": 1
   },
   {
    "order": 3,
@@ -202,6 +202,11 @@
    "seq": 12,
    "hole": "Hole 2",
    "text": "Hole 2 is in the books and nobody won it. Three groups, zero pars on the green. A refund on 2, the putting gods remain undefeated. All 8 players get their $5 back after the round."
+  },
+  {
+   "seq": 13,
+   "hole": "Hole 6",
+   "text": "Arty V lines up facing the cart path, slices it 90 degrees and parks it 9 ft 6 in from the flag. Then actually makes par. Ball-istic accuracy. Cinderella story, out of nowhere. Arty leads Hole 6 for $40."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
