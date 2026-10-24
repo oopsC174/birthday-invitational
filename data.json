@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T12:56:00-07:00",
+ "updated": "2026-10-24T13:00:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -34,9 +34,9 @@
    "pot": 40,
    "leader": "",
    "mark": "",
-   "status": "Open",
+   "status": "Refunded",
    "winner": "",
-   "groups_through": 2
+   "groups_through": 3
   },
   {
    "order": 2,
@@ -197,6 +197,11 @@
    "seq": 11,
    "hole": "Sign-ups",
    "text": "Matt is in on all five. The marathon man is going the distance, and he'll see every tree on the way there. Fore-ward progress, Matt."
+  },
+  {
+   "seq": 12,
+   "hole": "Hole 2",
+   "text": "Hole 2 is in the books and nobody won it. Three groups, zero pars on the green. A refund on 2, the putting gods remain undefeated. All 8 players get their $5 back after the round."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -292,5 +297,46 @@
    "paid": true
   }
  ],
- "payouts": []
+ "payouts": [
+  {
+   "player": "Chase",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Ava",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Lucas",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Nico",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Arty",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Evan",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Rex",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Matt",
+   "amount": 5,
+   "reason": "Hole 2 refund (no winner)"
+  }
+ ]
 }
