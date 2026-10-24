@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T12:43:00-07:00",
+ "updated": "2026-10-24T12:48:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -27,10 +27,11 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex"
+    "Rex",
+    "Matt"
    ],
-   "buyins": 35,
-   "pot": 35,
+   "buyins": 40,
+   "pot": 40,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -50,10 +51,11 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex"
+    "Rex",
+    "Matt"
    ],
-   "buyins": 35,
-   "pot": 35,
+   "buyins": 40,
+   "pot": 40,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -73,10 +75,11 @@
     "Rex",
     "Nico",
     "Arty",
-    "Evan"
+    "Evan",
+    "Matt"
    ],
-   "buyins": 35,
-   "pot": 35,
+   "buyins": 40,
+   "pot": 40,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -96,10 +99,11 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex"
+    "Rex",
+    "Matt"
    ],
-   "buyins": 35,
-   "pot": 35,
+   "buyins": 40,
+   "pot": 40,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -119,10 +123,11 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex"
+    "Rex",
+    "Matt"
    ],
-   "buyins": 35,
-   "pot": 35,
+   "buyins": 40,
+   "pot": 40,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -187,6 +192,11 @@
    "seq": 10,
    "hole": "Hole 2",
    "text": "Group 2 checks in on Hole 2: nobody on. Rex swung like he was going for the left field bleachers, and Lucas is probably claiming he out-drove the pin. Two groups down, zero qualifiers. It's all on Evan now. $35 says the stick delivers or everyone gets a refund."
+  },
+  {
+   "seq": 11,
+   "hole": "Sign-ups",
+   "text": "Matt is in on all five. The marathon man is going the distance, and he'll see every tree on the way there. Fore-ward progress, Matt."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -271,8 +281,8 @@
   },
   {
    "player": "Matt",
-   "amount": 20,
-   "reason": "Main game $20",
+   "amount": 45,
+   "reason": "Main game $20 + challenges on 2, 6, 7, 13, 16",
    "paid": true
   },
   {

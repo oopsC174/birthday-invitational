@@ -233,7 +233,7 @@ tr.me td { background: color-mix(in srgb, var(--won) 12%, transparent); }
     const buys = data.buyins || [];
     const outs = data.payouts || [];
     const total = buys.reduce((a, b) => a + Number(b.amount), 0);
-    const got = buys.filter((b) => b.paid).reduce((a, b) => a + Number(b.amount), 0);
+    const got = buys.reduce((a, b) => a + (b.paid ? Number(b.amount) : Number(b.paid_amount || 0)), 0);
     $('pot-collected').textContent = money(got) + ' of ' + money(total);
     $('pot-bar').style.width = (total ? Math.round(got / total * 100) : 0) + '%';
     const unpaid = buys.filter((b) => !b.paid).map((b) => b.player);
@@ -241,7 +241,8 @@ tr.me td { background: color-mix(in srgb, var(--won) 12%, transparent); }
 
     $('buyins').querySelector('tbody').replaceChildren(...buys.map((b) => {
       const tr = el('tr', b.player === me ? 'me' : null);
-      const st = el('td', b.paid ? 'paid' : 'owed', b.paid ? (b.note || '✓ Paid') : 'Owes');
+      const part = Number(b.paid_amount || 0);
+      const st = el('td', b.paid ? 'paid' : 'owed', b.paid ? (b.note || '✓ Paid') : (part ? 'Owes ' + money(b.amount - part) : 'Owes'));
       tr.append(el('td', null, b.player), el('td', null, money(b.amount)), st);
       tr.title = b.reason || '';
       return tr;
@@ -259,7 +260,7 @@ tr.me td { background: color-mix(in srgb, var(--won) 12%, transparent); }
     const b = buys.find((x) => x.player === me);
     const w = outs.filter((x) => x.player === me).reduce((a, x) => a + Number(x.amount), 0);
     $('mine-label').textContent = me;
-    $('mine-buyin').textContent = b ? money(b.amount) + (b.paid ? ' · ' + (b.note || '✓ Paid') : ' · owes Chase') : '—';
+    $('mine-buyin').textContent = b ? money(b.amount) + (b.paid ? ' · ' + (b.note || '✓ Paid') : ' · owes Chase ' + money(b.amount - Number(b.paid_amount || 0))) : '—';
     $('mine-buyin').title = b && b.reason ? b.reason : '';
     $('mine-win').textContent = outs.length ? money(w) : 'After the round';
     const net = w - (b ? Number(b.amount) : 0);
