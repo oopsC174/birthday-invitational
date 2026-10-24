@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T12:20:00-07:00",
+ "updated": "2026-10-24T12:36:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -35,7 +35,7 @@
    "mark": "",
    "status": "Open",
    "winner": "",
-   "groups_through": 0
+   "groups_through": 1
   },
   {
    "order": 2,
@@ -177,6 +177,11 @@
    "seq": 8,
    "hole": "Sign-ups",
    "text": "Rex is all in. The baseball player is stepping up to the plate on every challenge hole. Reminder, Rex: in golf you want the ball to stay fair, and there's no bunting on the green."
+  },
+  {
+   "seq": 9,
+   "hole": "Hole 2",
+   "text": "Ava sticks it to 7 ft 6 in and Chase to 12 ft 3 in... then both forget how to putt. No par, no contest. Ava's short game strikes again, and Chase clearly skipped the YouTube putting video. Like Judge Smails says, the world needs ditch diggers too. Hole 2 still up for grabs: $35."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
