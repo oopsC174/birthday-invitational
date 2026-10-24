@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T10:49:00-07:00",
+ "updated": "2026-10-24T10:53:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -229,7 +229,7 @@
    "player": "Lucas",
    "amount": 45,
    "reason": "Main game $20 + challenges on 2, 6, 7, 13, 16",
-   "paid": false
+   "paid": true
   },
   {
    "player": "Thomas",
