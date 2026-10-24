@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T16:46:00-07:00",
+ "updated": "2026-10-24T16:59:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -130,7 +130,7 @@
    "mark": "",
    "status": "Open",
    "winner": "",
-   "groups_through": 0
+   "groups_through": 1
   }
  ],
  "main": {
@@ -230,6 +230,11 @@
    "seq": 18,
    "hole": "Hole 13",
    "text": "FINAL: Chase wins Hole 13 at 20 ft 4 in. Nobody in groups 2 or 3 could top it. Not the prettiest shot, but money is money. Chase takes $35. Somebody tell his YouTube algorithm."
+  },
+  {
+   "seq": 19,
+   "hole": "Hole 16",
+   "text": "Nico finds the green at 33 ft 3 in... then three-putts his way to bogey. Swung out of his shoes on the tee and kept the momentum going on the green. No par, no money. Hole 16 is still wide open at $35."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
