@@ -218,7 +218,7 @@ select:focus-visible { outline: 2px solid var(--board); outline-offset: 2px; }
     const outs = me ? pays.filter((p) => p.payer === me) : [];
     const ins = me ? pays.filter((p) => p.payee === me) : [];
     const fill = (id, list, who) => {
-      $(id).querySelector('tbody').replaceChildren(...list.map((p) => rowCells(el('tr'), [p[who], money(p.amount), p.reason || ''])));
+      $(id).querySelector('tbody').replaceChildren(...list.map((p) => rowCells(el('tr'), [p[who], money(p.amount) + (p.paid ? ' ✓ Paid' : ''), p.reason || ''])));
       $(id).hidden = list.length === 0;
       $(id + '-empty').hidden = list.length !== 0 || !me || pays.length === 0;
     };

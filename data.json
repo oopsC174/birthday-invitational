@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T10:37:00-07:00",
+ "updated": "2026-10-24T10:38:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -241,7 +241,8 @@
    "payee": "Chase",
    "amount": 45,
    "reason": "Main game $20 + challenges on 2, 6, 7, 13, 16 ($25)",
-   "stage": "buy-in"
+   "stage": "buy-in",
+   "paid": true
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
