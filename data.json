@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T15:00:00-07:00",
+ "updated": "2026-10-24T10:35:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -25,10 +25,11 @@
     "Ava",
     "Lucas",
     "Nico",
-    "Arty"
+    "Arty",
+    "Evan"
    ],
-   "buyins": 25,
-   "pot": 25,
+   "buyins": 30,
+   "pot": 30,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -46,10 +47,11 @@
     "Ava",
     "Lucas",
     "Nico",
-    "Arty"
+    "Arty",
+    "Evan"
    ],
-   "buyins": 25,
-   "pot": 25,
+   "buyins": 30,
+   "pot": 30,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -68,10 +70,11 @@
     "Lucas",
     "Rex",
     "Nico",
-    "Arty"
+    "Arty",
+    "Evan"
    ],
-   "buyins": 30,
-   "pot": 30,
+   "buyins": 35,
+   "pot": 35,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -89,10 +92,11 @@
     "Ava",
     "Lucas",
     "Nico",
-    "Arty"
+    "Arty",
+    "Evan"
    ],
-   "buyins": 25,
-   "pot": 25,
+   "buyins": 30,
+   "pot": 30,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -110,10 +114,11 @@
     "Ava",
     "Lucas",
     "Nico",
-    "Arty"
+    "Arty",
+    "Evan"
    ],
-   "buyins": 25,
-   "pot": 25,
+   "buyins": 30,
+   "pot": 30,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -158,6 +163,11 @@
    "seq": 6,
    "hole": "Sign-ups",
    "text": "Arty V is in on all five. He lines up facing the parking lot and somehow slices it onto the flag. It's not a slice if it's on purpose, it's a GPS-guided curveball. Be the ball, Arty. Just a very confused ball."
+  },
+  {
+   "seq": 7,
+   "hole": "Sign-ups",
+   "text": "Evan is in on all five. The smoothest swing in the group just entered the chat. Everyone else, adjust your expectations and your grips. Be the ball? Evan IS the ball."
   }
  ],
  "payments": [],
