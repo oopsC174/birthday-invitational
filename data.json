@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T14:20:00-07:00",
+ "updated": "2026-10-24T16:05:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -99,11 +99,10 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex",
     "Matt"
    ],
-   "buyins": 40,
-   "pot": 40,
+   "buyins": 35,
+   "pot": 35,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -123,11 +122,10 @@
     "Nico",
     "Arty",
     "Evan",
-    "Rex",
     "Matt"
    ],
-   "buyins": 40,
-   "pot": 40,
+   "buyins": 35,
+   "pot": 35,
    "leader": "",
    "mark": "",
    "status": "Open",
@@ -217,6 +215,11 @@
    "seq": 15,
    "hole": "Hole 7",
    "text": "Lucas takes over the long drive cone from Arty. Asterisk: Thomas bombed it past him but never texted in to play, so his drive is just for the highlight reel. Lucas will be telling everyone he out-drove you for the next 6 months. From the forward tees. Evan and Matt, it's on you."
+  },
+  {
+   "seq": 16,
+   "hole": "Sign-ups",
+   "text": "Rex has pulled himself from Holes 13 and 16. The baseball player knows when to take a seat on the bench. Pots on 13 and 16 drop to $35."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -277,8 +280,8 @@
   },
   {
    "player": "Rex",
-   "amount": 45,
-   "reason": "Main game $20 + challenges on 2, 6, 7, 13, 16",
+   "amount": 35,
+   "reason": "Main game $20 + challenges on 2, 6, 7",
    "paid": false
   },
   {
