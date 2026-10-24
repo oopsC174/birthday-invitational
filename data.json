@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T12:42:00-07:00",
+ "updated": "2026-10-24T12:43:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -35,7 +35,7 @@
    "mark": "",
    "status": "Open",
    "winner": "",
-   "groups_through": 1
+   "groups_through": 2
   },
   {
    "order": 2,
@@ -182,6 +182,11 @@
    "seq": 9,
    "hole": "Hole 2",
    "text": "Ava sticks it to 7 ft 6 in and Chase to 12 ft 3 in... then both forget how to putt. No par, no contest. Ava's short game strikes again, and Chase clearly skipped the YouTube putting video. Like Judge Smails says, the world needs ditch diggers too. Hole 2 still up for grabs: $35."
+  },
+  {
+   "seq": 10,
+   "hole": "Hole 2",
+   "text": "Group 2 checks in on Hole 2: nobody on. Rex swung like he was going for the left field bleachers, and Lucas is probably claiming he out-drove the pin. Two groups down, zero qualifiers. It's all on Evan now. $35 says the stick delivers or everyone gets a refund."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
