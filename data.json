@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T16:06:00-07:00",
+ "updated": "2026-10-24T16:46:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -105,9 +105,9 @@
    "pot": 35,
    "leader": "Chase",
    "mark": "20 ft 4 in",
-   "status": "Open",
-   "winner": "",
-   "groups_through": 1
+   "status": "Won",
+   "winner": "Chase",
+   "groups_through": 3
   },
   {
    "order": 5,
@@ -225,6 +225,11 @@
    "seq": 17,
    "hole": "Hole 13",
    "text": "Chase finally gets on the board: 20 ft 4 in on the 189-yarder, and he gets up and down for par. Not exactly a dart, but the YouTube putting video must've finally kicked in. Leads Hole 13 for $35. In the words of Happy Gilmore: just tap it in."
+  },
+  {
+   "seq": 18,
+   "hole": "Hole 13",
+   "text": "FINAL: Chase wins Hole 13 at 20 ft 4 in. Nobody in groups 2 or 3 could top it. Not the prettiest shot, but money is money. Chase takes $35. Somebody tell his YouTube algorithm."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -360,6 +365,11 @@
    "player": "Matt",
    "amount": 5,
    "reason": "Hole 2 refund (no winner)"
+  },
+  {
+   "player": "Chase",
+   "amount": 35,
+   "reason": "Won Hole 13 closest to the pin"
   }
  ]
 }
