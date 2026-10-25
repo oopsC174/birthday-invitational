@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T17:24:00-07:00",
+ "updated": "2026-10-24T18:18:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -128,9 +128,9 @@
    "pot": 35,
    "leader": "",
    "mark": "",
-   "status": "Open",
+   "status": "Refunded",
    "winner": "",
-   "groups_through": 1
+   "groups_through": 3
   }
  ],
  "main": {
@@ -245,6 +245,11 @@
    "seq": 21,
    "hole": "Hole 6",
    "text": "FINAL: Arty V wins Hole 6 at 9 ft 6 in and takes $40. Lined up facing the parking lot, curved it home, made par. Nobody could match it. Arty's slice is officially a cash machine. Be the ball."
+  },
+  {
+   "seq": 22,
+   "hole": "Hole 16",
+   "text": "FINAL: Nobody wins Hole 16. Three groups, zero pars on the green. Refunds all around: everyone who was in gets their $5 back. Challenge holes are a wrap. Now it's main game time; post those 18 Birdies scorecards."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -395,6 +400,41 @@
    "player": "Arty",
    "amount": 40,
    "reason": "Won Hole 6 closest to the pin"
+  },
+  {
+   "player": "Chase",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Ava",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Lucas",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Nico",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Arty",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Evan",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Matt",
+   "amount": 5,
+   "reason": "Hole 16 refund (no winner)"
   }
  ]
 }
