@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T19:02:00-07:00",
+ "updated": "2026-10-24T19:58:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -369,7 +369,7 @@
    "player": "Peter",
    "amount": 20,
    "reason": "Main game $20",
-   "paid": false
+   "paid": true
   },
   {
    "player": "Lucas",
@@ -387,7 +387,8 @@
    "player": "Matt",
    "amount": 45,
    "reason": "Main game $20 + challenges on 2, 6, 7, 13, 16 (paying cash after the round)",
-   "paid": false
+   "paid": true,
+   "note": "\u2713 Paid Nico direct"
   },
   {
    "player": "Evan",
