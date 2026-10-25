@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T18:18:00-07:00",
+ "updated": "2026-10-24T19:02:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -139,7 +139,53 @@
   "pot": 200,
   "per_winner": 100
  },
- "teams": [],
+ "teams": [
+  {
+   "team": "Team 1",
+   "player_a": "Nico",
+   "a_best9": 47,
+   "player_b": "Evan",
+   "b_best9": 42,
+   "combined": 89,
+   "vs_par": "+17"
+  },
+  {
+   "team": "Team 2",
+   "player_a": "Chase",
+   "a_best9": 43,
+   "player_b": "Ava",
+   "b_best9": 52,
+   "combined": 95,
+   "vs_par": "+23"
+  },
+  {
+   "team": "Team 4",
+   "player_a": "Thomas",
+   "a_best9": 49,
+   "player_b": "Rex",
+   "b_best9": 50,
+   "combined": 99,
+   "vs_par": "+27"
+  },
+  {
+   "team": "Team 3",
+   "player_a": "Peter",
+   "a_best9": 56,
+   "player_b": "Arty",
+   "b_best9": 48,
+   "combined": 104,
+   "vs_par": "+32"
+  },
+  {
+   "team": "Team 5",
+   "player_a": "Matt",
+   "a_best9": 52,
+   "player_b": "Lucas",
+   "b_best9": 58,
+   "combined": 110,
+   "vs_par": "+38"
+  }
+ ],
  "feed": [
   {
    "seq": 1,
@@ -250,6 +296,11 @@
    "seq": 22,
    "hole": "Hole 16",
    "text": "FINAL: Nobody wins Hole 16. Three groups, zero pars on the green. Refunds all around: everyone who was in gets their $5 back. Challenge holes are a wrap. Now it's main game time; post those 18 Birdies scorecards."
+  },
+  {
+   "seq": 23,
+   "hole": "Main game",
+   "text": "BIRTHDAY INVITATIONAL CHAMPIONS: Nico & Evan at 89 (+17). The smoothest swing in the group carried the guy who swings out of his shoes, and it worked. $100 each. Chase & Ava take 2nd at 95, Thomas & Rex 99, Pete & Arty 104, Matt & Lucas 110. Lucas, you can still tell everyone about the long drive."
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -435,6 +486,16 @@
    "player": "Matt",
    "amount": 5,
    "reason": "Hole 16 refund (no winner)"
+  },
+  {
+   "player": "Nico",
+   "amount": 100,
+   "reason": "Main game winner (with Evan)"
+  },
+  {
+   "player": "Evan",
+   "amount": 100,
+   "reason": "Main game winner (with Nico)"
   }
  ]
 }
