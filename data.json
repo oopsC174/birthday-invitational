@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T19:58:00-07:00",
+ "updated": "2026-10-24T20:07:00-07:00",
  "players": [
   "Chase",
   "Ava",
@@ -301,6 +301,11 @@
    "seq": 23,
    "hole": "Main game",
    "text": "BIRTHDAY INVITATIONAL CHAMPIONS: Nico & Evan at 89 (+17). The smoothest swing in the group carried the guy who swings out of his shoes, and it worked. $100 each. Chase & Ava take 2nd at 95, Thomas & Rex 99, Pete & Arty 104, Matt & Lucas 110. Lucas, you can still tell everyone about the long drive."
+  },
+  {
+   "seq": 24,
+   "hole": "Settle up",
+   "text": "Everyone is paid up. The Birthday Invitational is officially in the books. Same time next year?"
   }
  ],
  "payment_mode": "One big pot: everyone pays Chase before tee-off, Chase pays out winners and refunds after the round.",
@@ -363,7 +368,8 @@
    "player": "Rex",
    "amount": 35,
    "reason": "Main game $20 + challenges on 2, 6, 7",
-   "paid": false
+   "paid": true,
+   "note": "\u2713 Paid Evan direct"
   },
   {
    "player": "Peter",
@@ -381,7 +387,7 @@
    "player": "Thomas",
    "amount": 20,
    "reason": "Main game $20",
-   "paid": false
+   "paid": true
   },
   {
    "player": "Matt",
